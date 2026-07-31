@@ -8,41 +8,49 @@ CAR_COLOUR = ['red', 'blue', 'green', 'silver', 'orange', 'cyan', 'purple', 'yel
 
 bob_killer = []
 
-class Car(Turtle):
+class Car:
     def __init__(self):
-        Turtle.__init__(self)
-        self.shape('square')
-        self.pu()
-        self.length = random.randint(2,5)
-        self.turtlesize(1, self.length)
-        self.color(random.choice(CAR_COLOUR))
+        self.turtle = Turtle()
+        self.turtle.shape('square')
+        self.turtle.pu()
+        self.length = random.randint(2, 5)
+        self.turtle.shapesize(1, self.length)
+        self.turtle.color(random.choice(CAR_COLOUR))
         self.xstart = random.randint(-400, 400)
         self.start = random.randint(-20, 25)*10
-        self.setheading(180)
+        self.turtle.setheading(180)
 
     def move(self):
         CAR_TRUE_SPEED = CAR_SPEED + CAR_INCREMENT*LEVEL
-        self.fd(CAR_TRUE_SPEED)
+        self.turtle.fd(CAR_TRUE_SPEED)
+
     def reset(self):
         self.start = random.randint(-20, 25)*10
-        self.goto(400, self.start)
-        self.length = random.randint(2,5)
-        self.turtlesize(1, self.length)
-        self.color(random.choice(CAR_COLOUR))
+        self.turtle.goto(400, self.start)
+        self.length = random.randint(2, 5)
+        self.turtle.shapesize(1, self.length)
+        self.turtle.color(random.choice(CAR_COLOUR))
+
+    def xcor(self):
+        return self.turtle.xcor()
+
+    def ycor(self):
+        return self.turtle.ycor()
 
     def get_front(self):
-        return self.xcor() - self.length * 10
+        return self.turtle.xcor() - self.length * 10
+
     def get_back(self):
-        return self.xcor() + self.length * 10
+        return self.turtle.xcor() + self.length * 10
 
 def army(n):
     for i in range(n):
         a = Car()
-        a.goto(a.xstart, a.start)
+        a.turtle.goto(a.xstart, a.start)
         bob_killer.append(a)
         time.sleep(random.random()/10)
 
 def soldier():
     a = Car()
-    a.goto(400, a.start)
+    a.turtle.goto(400, a.start)
     bob_killer.append(a)
