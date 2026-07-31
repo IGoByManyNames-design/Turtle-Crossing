@@ -8,13 +8,13 @@ class Player(Turtle):
         self.color('white')
         self.pencolor('magenta')
         self.pu()
-        self.teleport(x=0, y=-270)
+        self.goto(0, -270)
         self.setheading(90)
 
     def move(self):
         self.fd(PLAYER_SPEED)
     def reset(self):
-        self.teleport(x=0, y=-270)
+        self.goto(0, -270)
 
     def dead(self):
         a = Turtle()

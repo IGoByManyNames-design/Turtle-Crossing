@@ -13,8 +13,9 @@ ref.ht()
 ref.pencolor('white')
 def scorecard():
     ref.clear()
-    ref.teleport(x=-350, y=250)
-    ref.write(arg=f'Level : {car.LEVEL}', move=False, align='center', font=('Times New Roman', 24, 'bold'))
+    ref.penup()
+    ref.goto(-350, 250)
+    ref.write(arg='Level : ' + str(car.LEVEL), move=False, align='center', font=('Times New Roman', 24, 'bold'))
 
 bob = player.Player()
 car.army(5)

@@ -25,7 +25,7 @@ class Car(Turtle):
         self.fd(CAR_TRUE_SPEED)
     def reset(self):
         self.start = random.randint(-20, 25)*10
-        self.teleport(x=400, y=self.start)
+        self.goto(400, self.start)
         self.length = random.randint(2,5)
         self.shapesize(stretch_len=self.length, stretch_wid=1)
         self.color(random.choice(CAR_COLOUR))
@@ -38,11 +38,11 @@ class Car(Turtle):
 def army(n):
     for i in range(n):
         a = Car()
-        a.teleport(x=a.xstart, y=a.start)
+        a.goto(a.xstart, a.start)
         bob_killer.append(a)
         time.sleep(random.random()/10)
 
 def soldier():
     a = Car()
-    a.teleport(x=400, y=a.start)
+    a.goto(400, a.start)
     bob_killer.append(a)
