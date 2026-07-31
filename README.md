@@ -1,6 +1,9 @@
 # 🐢 Turtle Crossing Game
 
+[![Play Online on Replit](https://img.shields.io/badge/Play%20Online-Replit-red?style=for-the-badge&logo=replit)](https://replit.com/@abhikgupta96/Turtle-Crossing)
+
 A classic arcade-style road crossing game built using Python's `turtle` graphics library as part of the 100 Days of Code: Python Bootcamp (Day 23).
+
 
 ---
 
