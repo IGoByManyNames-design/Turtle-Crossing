@@ -1,27 +1,20 @@
 from turtle import Turtle
 PLAYER_SPEED = 10
 
-class Player:
+class Player(Turtle):
     def __init__(self):
-        self.turtle = Turtle()
-        self.turtle.shape('turtle')
-        self.turtle.color('white')
-        self.turtle.pencolor('magenta')
-        self.turtle.pu()
-        self.turtle.goto(0, -270)
-        self.turtle.setheading(90)
+        super().__init__()
+        self.shape('turtle')
+        self.color('white')
+        self.pencolor('magenta')
+        self.pu()
+        self.teleport(x=0, y=-270)
+        self.setheading(90)
 
     def move(self):
-        self.turtle.fd(PLAYER_SPEED)
-
-    def xcor(self):
-        return self.turtle.xcor()
-
-    def ycor(self):
-        return self.turtle.ycor()
-
+        self.fd(PLAYER_SPEED)
     def reset(self):
-        self.turtle.goto(0, -270)
+        self.teleport(x=0, y=-270)
 
     def dead(self):
         a = Turtle()

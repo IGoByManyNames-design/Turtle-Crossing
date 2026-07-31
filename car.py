@@ -8,49 +8,41 @@ CAR_COLOUR = ['red', 'blue', 'green', 'silver', 'orange', 'cyan', 'purple', 'yel
 
 bob_killer = []
 
-class Car:
+class Car(Turtle):
     def __init__(self):
-        self.turtle = Turtle()
-        self.turtle.shape('square')
-        self.turtle.pu()
-        self.length = random.randint(2, 5)
-        self.turtle.shapesize(1, self.length)
-        self.turtle.color(random.choice(CAR_COLOUR))
+        super().__init__()
+        self.shape('square')
+        self.pu()
+        self.length = random.randint(2,5)
+        self.shapesize(stretch_len=self.length, stretch_wid=1)
+        self.color(random.choice(CAR_COLOUR))
         self.xstart = random.randint(-400, 400)
         self.start = random.randint(-20, 25)*10
-        self.turtle.setheading(180)
+        self.setheading(180)
 
     def move(self):
         CAR_TRUE_SPEED = CAR_SPEED + CAR_INCREMENT*LEVEL
-        self.turtle.fd(CAR_TRUE_SPEED)
-
+        self.fd(CAR_TRUE_SPEED)
     def reset(self):
         self.start = random.randint(-20, 25)*10
-        self.turtle.goto(400, self.start)
-        self.length = random.randint(2, 5)
-        self.turtle.shapesize(1, self.length)
-        self.turtle.color(random.choice(CAR_COLOUR))
-
-    def xcor(self):
-        return self.turtle.xcor()
-
-    def ycor(self):
-        return self.turtle.ycor()
+        self.teleport(x=400, y=self.start)
+        self.length = random.randint(2,5)
+        self.shapesize(stretch_len=self.length, stretch_wid=1)
+        self.color(random.choice(CAR_COLOUR))
 
     def get_front(self):
-        return self.turtle.xcor() - self.length * 10
-
+        return self.xcor() - self.length * 10
     def get_back(self):
-        return self.turtle.xcor() + self.length * 10
+        return self.xcor() + self.length * 10
 
 def army(n):
     for i in range(n):
         a = Car()
-        a.turtle.goto(a.xstart, a.start)
+        a.teleport(x=a.xstart, y=a.start)
         bob_killer.append(a)
         time.sleep(random.random()/10)
 
 def soldier():
     a = Car()
-    a.turtle.goto(400, a.start)
+    a.teleport(x=400, y=a.start)
     bob_killer.append(a)
