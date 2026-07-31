@@ -10,11 +10,11 @@ bob_killer = []
 
 class Car(Turtle):
     def __init__(self):
-        super().__init__()
+        Turtle.__init__(self)
         self.shape('square')
         self.pu()
         self.length = random.randint(2,5)
-        self.shapesize(stretch_len=self.length, stretch_wid=1)
+        self.shapesize(1, self.length)
         self.color(random.choice(CAR_COLOUR))
         self.xstart = random.randint(-400, 400)
         self.start = random.randint(-20, 25)*10
@@ -27,7 +27,7 @@ class Car(Turtle):
         self.start = random.randint(-20, 25)*10
         self.goto(400, self.start)
         self.length = random.randint(2,5)
-        self.shapesize(stretch_len=self.length, stretch_wid=1)
+        self.shapesize(1, self.length)
         self.color(random.choice(CAR_COLOUR))
 
     def get_front(self):

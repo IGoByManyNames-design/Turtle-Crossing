@@ -3,7 +3,7 @@ PLAYER_SPEED = 10
 
 class Player(Turtle):
     def __init__(self):
-        super().__init__()
+        Turtle.__init__(self)
         self.shape('turtle')
         self.color('white')
         self.pencolor('magenta')
